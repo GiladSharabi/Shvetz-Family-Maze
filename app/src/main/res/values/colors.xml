@@ -4,9 +4,14 @@
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_400">#24C6B7</color>
+    <color name="teal_500">#04A6A5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="green_300">#128F04</color>
+    <color name="green_400">#1EE208</color>
+    <color name="red_400">#F80000</color>
+    <color name="orange_400">#F65623</color>
     <color name="blue_300">#0A82B8</color>
+    <color name="purple_400">#8D65D3</color>
 </resources>

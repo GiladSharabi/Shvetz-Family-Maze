@@ -2,14 +2,14 @@ package com.example.myhomework1.Models;
 
 import com.example.myhomework1.Logic.GameManager;
 
-public class GameCharacter {
+public abstract class GameCharacter {
 
     protected int currentRow;
     protected int currentCol;
     protected int maxRowsIndex;
     protected int maxColsIndex;
 
-    public GameCharacter (int maxRowsIndex, int maxColsIndex) { // maxRowsIndex=5 maxColsIndex=2
+    public GameCharacter (int maxRowsIndex, int maxColsIndex) { // maxRowsIndex=5 maxColsIndex=4
         this.maxRowsIndex = maxRowsIndex;
         this.maxColsIndex = maxColsIndex;
     }

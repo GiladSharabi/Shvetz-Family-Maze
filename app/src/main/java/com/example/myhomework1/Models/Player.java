@@ -2,13 +2,11 @@ package com.example.myhomework1.Models;
 
 public class Player extends GameCharacter{
 
-
     public Player(int maxRowsIndex, int maxColsIndex) { // maxRowsIndex=5 maxColsIndex=2
         super(maxRowsIndex, maxColsIndex);
         this.setCurrentRow(maxRowsIndex);
         this.setCurrentCol(maxColsIndex/2);
     }
-
     public boolean movePlayer(eMove move) {
         if (move == eMove.left) {
             if (super.getCurrentCol() <= 0)

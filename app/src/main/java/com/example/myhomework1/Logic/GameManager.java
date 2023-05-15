@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 
+import com.example.myhomework1.Models.Coin;
 import com.example.myhomework1.Models.Enemy;
 import com.example.myhomework1.Models.GameCharacter;
 import com.example.myhomework1.Models.Player;
@@ -15,6 +16,12 @@ public class GameManager {
     private int rows;
     private int cols;
     private int life;
+    private final int COIN_RATE = 4;
+    public final int COIN_SCORE = 3;
+    private int currentScore = 0;
+
+
+
     private GameCharacter gameBoard[][];
     private Player player;
 
@@ -43,6 +50,13 @@ public class GameManager {
         }
         return -1;
     }
+    public int getCoinColInRowIndex(int rowIndex) {
+        for (int j=0;j<cols;j++) {
+            if (gameBoard[rowIndex][j] instanceof Coin)
+                return j;
+        }
+        return -1;
+    }
 
     public void nextMoveAllEnemies () {
         for (int i=rows-1;i>=0;i--) {
@@ -50,17 +64,52 @@ public class GameManager {
                 if (gameBoard[i][j] instanceof Enemy) {
                     if (((Enemy)gameBoard[i][j]).moveEnemy()) // this function also check if enemy in the last row
                         gameBoard[i+1][j] = gameBoard[i][j];
+                    gameBoard[i][j] = null;
                 }
-                gameBoard[i][j] = null;
             }
         }
         createNewEnemyOnBoard();
     }
+    public void nextMoveAllCoins () {
+        for (int i=rows-1;i>=0;i--) {
+            for (int j=cols-1;j>=0;j--) {
+                if (gameBoard[i][j] instanceof Coin) {
+                    if (((Coin)gameBoard[i][j]).moveCoin()) // this function also check if enemy in the last row
+                        gameBoard[i+1][j] = gameBoard[i][j];
+                    gameBoard[i][j] = null;
+                }
+            }
+        }
+
+        int isCreateNewCoin = (int) (Math.random() * COIN_RATE), randomCol;
+        if (isCreateNewCoin == 0) {
+            do {
+                randomCol = (int) (Math.random() * cols);
+            } while (gameBoard[0][randomCol] != null);
+            gameBoard[0][randomCol] = new Coin(rows - 1, cols - 1, randomCol);
+        }
+    }
+    public void nextMoveBoard() {
+        nextMoveAllEnemies();
+        currentScore++;
+        nextMoveAllCoins();
+    }
 
     private void createNewEnemyOnBoard() {
-        int randomCol = (int)(Math.random()*cols); // random 0-2
-        gameBoard[0][randomCol] = new Enemy(rows-1,cols-1,randomCol);
+        int randomCol;
+        do {
+            randomCol = (int) (Math.random() * cols);
+        } while (gameBoard[0][randomCol] != null);
+        gameBoard[0][randomCol] = new Enemy(rows - 1, cols - 1, randomCol);
     }
+    private void createNewCoinOnBoard() {
+        int randomCol;
+        do {
+            randomCol = (int) (Math.random() * cols);
+        } while (gameBoard[0][randomCol] != null);
+        gameBoard[0][randomCol] = new Coin(rows - 1, cols - 1, randomCol);
+    }
+
 
     public void moveThePlayer(eMove move) {
         gameBoard[player.getCurrentRow()][player.getCurrentCol()] = null;
@@ -76,6 +125,13 @@ public class GameManager {
         }
         return false;
     }
+    public boolean isCoinOnPlayer() {
+        if (gameBoard[this.player.getCurrentRow()][this.player.getCurrentCol()] instanceof Coin) {
+            currentScore += COIN_SCORE;
+            return true;
+        }
+        return false;
+    }
 
 
 
@@ -83,41 +139,39 @@ public class GameManager {
     public int getRows() {
         return rows;
     }
-
     public void setRows(int rows) {
         this.rows = rows;
     }
-
     public int getCols() {
         return cols;
     }
-
     public void setCols(int cols) {
         this.cols = cols;
     }
-
     public int getLife() {
         return life;
     }
-
     public void setLife(int life) {
         this.life = life;
     }
-
     public GameCharacter[][] getGameBoard() {
         return gameBoard;
     }
-
     public void setGameBoard(GameCharacter[][] gameBoard) {
         this.gameBoard = gameBoard;
     }
-
     public Player getPlayer() {
         return player;
     }
-
     public void setPlayer(Player player) {
         this.player = player;
     }
+    public int getCurrentScore() {
+        return currentScore;
+    }
+    public void setCurrentScore(int currentScore) {
+        this.currentScore = currentScore;
+    }
+
 
 }

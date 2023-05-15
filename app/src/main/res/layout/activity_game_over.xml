@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_wall"
+
+    >
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/game_over_IMG_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/gameOver_TV_gameOver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GAME OVER"
+            android:textStyle="bold"
+            android:fontFamily="@font/akaya_telivigala"
+            android:textSize="36dp"
+            android:textColor="@color/black"
+
+            />
+
+        <TextView
+            android:id="@+id/gameOver_TV_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/akaya_telivigala"
+            android:text="SCORE: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+
+
+            />
+
+
+        <EditText
+            android:id="@+id/gameOver_ETXT_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Your Name"
+            android:textColorHint="@color/black"
+            android:fontFamily="@font/akaya_telivigala"
+            android:layout_marginTop="30dp"
+
+
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/gameOver_BTN_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="save score"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/akaya_telivigala"
+            android:backgroundTint="@color/teal_200"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/gameOver_BTN_scoreBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SCORE TABLE"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/teal_400"
+            android:fontFamily="@font/akaya_telivigala"
+            android:layout_marginTop="40dp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/gameOver_BTN_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAIN MENU"
+            android:textStyle="bold"
+            android:textSize="35dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/teal_500"
+            android:fontFamily="@font/akaya_telivigala"
+            android:layout_marginTop="40dp"
+
+            />
+        </LinearLayout>
+
+
+</RelativeLayout>
