@@ -34,7 +34,7 @@ To install Shvets Family Maze on your device, follow these steps:
 
 ## Feedback
 
-We value your feedback! If you have any suggestions, bug reports, or feature requests, please don't hesitate to reach out to us.
+I value your feedback! If you have any suggestions, bug reports, or feature requests, please don't hesitate to reach out to me - gilad1197@gmail.com.
 
 ## Credits
 
